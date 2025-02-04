@@ -6,7 +6,7 @@
 #include <iomanip>
 
 // Function to count the frequency of all byte values (0-255) in a file
-void countByteFrequency(const std::string& fileName) {
+std::vector<std::pair<unsigned char, int>> countByteFrequency(const std::string& fileName) {
     // Create an unordered map to store byte frequencies (0-255)
     std::unordered_map<unsigned char, int> byteFrequency;
 
@@ -16,7 +16,7 @@ void countByteFrequency(const std::string& fileName) {
     // Check if the file opened successfully
     if (!file.is_open()) {
         std::cerr << "Error: Could not open file!" << std::endl;
-        return;
+        return 0;
     }
 
     // Read the file byte by byte
@@ -43,6 +43,7 @@ void countByteFrequency(const std::string& fileName) {
 	    std::cout << "Byte " << std::setw(3) << static_cast<int>(pair.first) 
 		    << " Frequency: " << pair.second << std::endl;
     }
+    return (sortedBytes);
 }
 
 int main(int argc, char **argv)
@@ -52,8 +53,7 @@ int main(int argc, char **argv)
 	std::string fileName = argv[1]; // Replace with your file path
 
     // Call the function to count byte frequencies
-    countByteFrequency(fileName);
-
+	std::vector<std::pair<unsigned char, int>> sortedBytes = countByteFrequency(fileName);
     return 0;
 }
 

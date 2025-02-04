@@ -47,8 +47,10 @@ void compress_file(const string &input_file, const string &output_file) {
     
     while (input.get(c)) {
         buffer += c;
+	cout << "Buffer :" << buffer << endl;
         if (dictionary.find(buffer) == dictionary.end()) {
             int code = dictionary[buffer.substr(0, buffer.size() - 1)];
+	    cout << "code : " << code << endl;
             bitset<7> bits(code);
             for (int i = 0; i < bit_size; i++) {
                 bitstream.push_back(bits[bit_size - 1 - i]);
