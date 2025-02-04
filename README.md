@@ -1,3 +1,3 @@
-<b><h2>Seed-based Data Compressor</h2></b>
+<b><h2>Less-Bits Data Compression</h2></b>
 <br />
-This project aims to reproduce some seed-based data compression protocols.
+This project aims to compress data in less than 8-bits.
